@@ -4,6 +4,7 @@ var hiro = document.querySelector('#hiro');
 let date1 = new Date(2021, 11, 7, 9, 0, 0, 0); //original date watered
 let now = new Date(); //the current time
 
+//Time since initial watering
 var timeDiff = now - date1; //in ms
 // strip the ms
 timeDiff /= 1000;
@@ -28,7 +29,7 @@ function largePlant(){ //hiro marker
         return `Next Watering: ${24-hours} hours`
     }  
     else{
-        return `Next Watering: ${Math.round((96-hours)/24)} days`   
+        return `Next Watering: ${Math.trunc((96-hours)/24)} days`   
     }
 }
 
@@ -47,10 +48,17 @@ function leafyPlant(){ //custom marker
 
 //create the text entity - kanji
 var entityEl = document.createElement('a-entity');
+entityEl.setAttribute('rotation', '-90 0 0');
+entityEl.setAttribute('geometry', "primitive: plane; width: 2; height: auto;");
+entityEl.setAttribute("material", "color: green");
 entityEl.setAttribute('text', `value:${Rosemary()}; align: center; height:4; width:4;`);
 kanji.appendChild(entityEl);
 
 //create the text entity - hiro
 var entityTwo = document.createElement('a-entity');
+entityTwo.setAttribute('rotation', '-90 0 0');
+entityTwo.setAttribute('geometry', "primitive: plane; width: 2; height: auto")
+entityTwo.setAttribute("material", "color: green")
 entityTwo.setAttribute('text', `value:${largePlant()}; align: center; height:4; width:4;`);
 hiro.appendChild(entityTwo);
+
