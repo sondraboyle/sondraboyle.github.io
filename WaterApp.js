@@ -1,6 +1,7 @@
 
 var kanji = document.querySelector('#kanji');
 var hiro = document.querySelector('#hiro');
+var barcode = document.querySelector('#barcode');
 let date1 = new Date(2021, 11, 7, 9, 0, 0, 0); //original date watered
 let now = new Date(); //the current time
 
@@ -25,7 +26,7 @@ function Rosemary(){ //kanji marker
 function largePlant(){ //hiro marker
     if(hours >= 96){
         return "Water Me!"}
-    else if (hours > 24 && hours <96){
+    else if (hours > 24){
         return `Next Watering: ${24-hours} hours`
     }  
     else{
@@ -33,16 +34,18 @@ function largePlant(){ //hiro marker
     }
 }
 
-function leafyPlant(){ //custom marker
+function leafyPlant(){ //barcode marker
     if(hours >= 48){
         return "Water Me!"}
-    else if (hours >= 24 && hours <=48){
+    else if (hours >= 24){
         return `Water me tomorrow`
     }  
     else {
-        return `Next Watering: ${48-hours} hours`
+        return `Next Watering: ${Math.round((48-hours)/24)} days`
     }
 }
+
+console.log(largePlant());
 
 
 
@@ -61,4 +64,12 @@ entityTwo.setAttribute('geometry', "primitive: plane; width: 2; height: auto")
 entityTwo.setAttribute("material", "color: green")
 entityTwo.setAttribute('text', `value:${largePlant()}; align: center; height:4; width:4;`);
 hiro.appendChild(entityTwo);
+
+//create the text entity - barcode
+var entityThree = document.createElement('a-entity');
+entityThree.setAttribute('rotation', '-90 0 0');
+entityThree.setAttribute('geometry', "primitive: plane; width: 2; height: auto")
+entityThree.setAttribute("material", "color: green")
+entityThree.setAttribute('text', `value:${leafyPlant()}; align: center; height:4; width:4;`);
+barcode.appendChild(entityThree);
 
