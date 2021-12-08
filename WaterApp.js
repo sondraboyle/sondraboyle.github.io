@@ -5,6 +5,7 @@ let date1 = new Date(2021, 11, 7, 9, 0, 0, 0); //original date watered
 let now = new Date(); //the current time
 
 
+
 //Time since initial watering
 var timeDiff = now - date1; //in ms
 // strip the ms
@@ -13,6 +14,14 @@ timeDiff /= 1000;
 var seconds = Math.round(timeDiff);
 //change to hours
 var hours = Math.round(seconds /60 /60);
+
+function plantsWatered(){
+    if(hours>97){
+        date1 = newdate();
+    }
+}
+
+plantsWatered();
 
 
 function Rosemary(){ //kanji marker
@@ -45,12 +54,6 @@ function leafyPlant(){ //barcode marker
     }
 }
 
-function plantsWatered(){
-    if(hours>97){
-        date1 = newdate();
-    }
-}
-
 
 
 //create the text entity - kanji
@@ -77,5 +80,4 @@ entityThree.setAttribute("material", "color: green")
 entityThree.setAttribute('text', `value:${leafyPlant()}; align: center; height:4; width:4;`);
 barcode20.appendChild(entityThree);
 
-plantsWatered();
 
