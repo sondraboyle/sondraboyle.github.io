@@ -62,6 +62,7 @@ entityEl.setAttribute('rotation', '-90 0 0');
 entityEl.setAttribute('geometry', "primitive: plane; width: 2; height: auto;");
 entityEl.setAttribute("material", "color: green");
 entityEl.setAttribute('text', `value:${Rosemary()}; align: center; height:4; width:4;`);
+entityEl.setAttribute('position', `0 0 0`);
 kanji.appendChild(entityEl);
 
 //create the text entity - hiro
