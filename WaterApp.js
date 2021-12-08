@@ -3,7 +3,7 @@ var hiro = document.querySelector('#hiro');
 var barcode20 = document.querySelector('#barcode20');
 let date1 = new Date(2021, 11, 7, 9, 0, 0, 0); //original date watered
 let now = new Date(); //the current time
-plantsWatered();
+
 
 //Time since initial watering
 var timeDiff = now - date1; //in ms
@@ -76,3 +76,6 @@ entityThree.setAttribute('geometry', "primitive: plane; width: 2; height: auto")
 entityThree.setAttribute("material", "color: green")
 entityThree.setAttribute('text', `value:${leafyPlant()}; align: center; height:4; width:4;`);
 barcode20.appendChild(entityThree);
+
+plantsWatered();
+
