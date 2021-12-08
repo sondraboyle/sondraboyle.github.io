@@ -1,7 +1,6 @@
-
 var kanji = document.querySelector('#kanji');
 var hiro = document.querySelector('#hiro');
-var barcode = document.querySelector('#barcode');
+var barcode20 = document.querySelector('#barcode20');
 let date1 = new Date(2021, 11, 7, 9, 0, 0, 0); //original date watered
 let now = new Date(); //the current time
 
@@ -26,7 +25,7 @@ function Rosemary(){ //kanji marker
 function largePlant(){ //hiro marker
     if(hours >= 96){
         return "Water Me!"}
-    else if (hours > 24){
+    else if (hours < 24){
         return `Next Watering: ${24-hours} hours`
     }  
     else{
@@ -45,7 +44,11 @@ function leafyPlant(){ //barcode marker
     }
 }
 
-console.log(largePlant());
+function plantsWatered(){
+    if(hours>97){
+        date1 = newdate();
+    }
+}
 
 
 
@@ -71,5 +74,6 @@ entityThree.setAttribute('rotation', '-90 0 0');
 entityThree.setAttribute('geometry', "primitive: plane; width: 2; height: auto")
 entityThree.setAttribute("material", "color: green")
 entityThree.setAttribute('text', `value:${leafyPlant()}; align: center; height:4; width:4;`);
-barcode.appendChild(entityThree);
+barcode20.appendChild(entityThree);
 
+plantsWatered();
